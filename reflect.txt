@@ -1,0 +1,38 @@
+/**************************************************
+OOP345NFF Project
+Professor : Hong Huang
+Student   : Chungon Tse
+ID        : 154928188
+Completed : 26 Nov 2022
+I have done all the coding by myself and
+only copied the code that my professor
+provided to complete my workshops and assignments.
+**************************************************/
+
+1.
+I think the central issues of this project are mostly in CustomerOrder. While Station and Utilities have to function for MS1 to succeed, it is more likely to pass MS2 just to see one's own CustomerOrder not work in MS3. Or put it in another way, CustomerOrder is slightly more coupled with Workstation than it is in MS2.
+
+The IO manipulators, iomanip library, are in fact essential for display() of CustomerOrder and overall proper output. I cannot stress again because the output is highly specified in this exercise. Say, like CustomerOrder above, one can have anything to work in MS1 and MS2, but without proper std::right/left statements, then the display can mess up in MS3 when everything has to be in place.
+
+In MS3, the main issues are on how to do Workstation::attemptToMoveOrder() and LineManager's constructor properly. In the former, the tricky part is on when and whether to move an order. This is also where CustomerOrder comes to play because of the bool functions isItemFilled() and isOrderFilled(). Once Workstation goes fine, then the next step is to do LineManager, both the constructor and run().
+
+In LineManager's constructor, it goes with a lot of settings. First, store a pointer of Workstation, in fact, a current station and a next station, then introduce a placeholder string as current and next. Then, processing the current string, find the current station within range. Push back the current station within m_activeLine, and move on for the next station with a similar logic, but instead set the next station.
+
+Next, identify the first station's address through m_activeLine. If there is no next station, then the (current, or first/only) station is "that" workstation. Conclude with assigning the pending size to m_cntCustomerOrder. This is also where STL algorithms shine, and it is just handy to utilize them.
+
+As in the above, CustomerOrder has to be right, because "fillItem() fills ONE item in the current order that the Station specified...". I spent time on fixing CustomerOrder, then LineManager's constructor, followed by Workstation's attemptToMoveOrder(). When CustomerOrder's bool functions were not good yet, there was a problem with, at last, one exact line of iteration. Line 147/148 was missing at iteration 12. I think this shows the extent of how the bool functions have to be exact.
+
+2.
+There are multiple ways, just like coding in general, to write this entire exercise. It is possible to not use the STL algorithms, but this time I choose to use them to spice up and practice those algorithms. It is just right to practice algorithms as coding students proceed to writing more general functions as opposed to very much custom, specific functions (back in OOP244).
+
+3.
+I am already using this opportunity to reflect on what to do with my future and what to study next. C++ is itself still regularly updated but every single IT professional that I ran into would say "why don't you go learn Python, Kotlin, Go... nobody uses C++ today in our similar companies and the industry". I feel like my general education here with mainly C++, SQL and such limited JavaScript is not just insufficient, but pretty much underwhelming. I am also missing the new curriculum of CPP including DSA456 which newer classmates see as both challenging and crucial for their future. For this reason, I will simply have to consult my classmates on what to do since I will not have this course. Of course, online resources exist. Just that coursework tends to weigh me down during a semester.
+
+4.
+Overall, it is just fortunate of us to go back to in-person classes since online instructions tend to be underwhelming, no matter how good a prof is. I cannot say the same for famous university lectures, many being online for free, that are well funded and designed with a lot of support and resources. They are per se very expensive and the money is well spent on instructions and overall experiences.
+
+Just like writing code, there are many ways and places for learning to code. Online or free classes do not really cancel out colleage classes. They are simply different dynamics going on.
+
+I am not sure about which course may sound the most difficult to students in general. Some say OOP345, some say DSA555/456, some say BCI433 (legacy). IPC144 and OOP244, in my opinion, were a lot of work. OOP345 is also about quite a few graded components but very often I see classmates run into a hit-or-miss situation. Those who understand easily pass a certain task, and others probably will have to pass that graded item. Again, I understand why STL algorithms appear in the middle of this class, as with vector, but for more "modern" coding, it may be more advisable to let students know of algorithms, and in fact non-C languages, earlier in this program.
+
+Having had this programme for longer than the majority of classmates, I do feel tired, and I can see I need far more skills (whether front end or back end, or anything) for the saturated job market. There is a lot of uncertainty. It is just that there is always a lot to learn and explore.
